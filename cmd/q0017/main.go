@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// ho imbrogliato, perchè ho fatto generare le parole da chatgpt
+// generate by ChatGPT
 var numberWords = []string{
 	"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
 	"ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen",
@@ -127,7 +127,7 @@ var num = []string{"zero", "one", "two", "three", "four", "five", "six", "seven"
 var da10a19 = []string{"ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"}
 var decineDa20 = []string{"twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"}
 
-func numeriMin10(i int) string {
+func numbersMin10(i int) string {
 	if i >= 10 {
 		panic("i >= 10")
 	}
@@ -136,7 +136,7 @@ func numeriMin10(i int) string {
 
 func numeriMin19(i int) string {
 	if i < 10 {
-		return numeriMin10(i)
+		return numbersMin10(i)
 	}
 	return da10a19[i-10]
 }
@@ -169,7 +169,7 @@ func numeriDa100A999(i int) string {
 	return result
 }
 
-func costruisciArrayNumeri() []string {
+func buildWords() []string {
 	var result = []string{}
 
 	for i := 0; i <= 1000; i++ {
@@ -186,6 +186,7 @@ func costruisciArrayNumeri() []string {
 	}
 	return result
 }
+
 func countChars(s string) int {
 	result := 0
 	for _, c := range s {
@@ -198,7 +199,9 @@ func countChars(s string) int {
 
 func main() {
 
-	myList := costruisciArrayNumeri()
+	myList := buildWords()
+
+	// compare with chatgpt generated strings
 	for j := 0; j < len(myList); j++ {
 		n1 := myList[j]
 		n2 := numberWords[j]
