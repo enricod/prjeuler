@@ -197,11 +197,23 @@ func countChars(s string) int {
 	return result
 }
 
+func makeTests() {
+	t := map[int]int{115: 20, 342: 23}
+	for k, v := range t {
+		if countChars(numberWords[k]) != v {
+			panic(fmt.Sprintf("%s => %d \n", numberWords[115], countChars(numberWords[115])))
+		}
+	}
+	fmt.Println("tests ok.")
+}
+
 func main() {
 
 	myList := buildWords()
 
-	// compare with chatgpt generated strings
+	makeTests()
+
+	// compare my strings with chatgpt generated ones
 	for j := 0; j < len(myList); j++ {
 		n1 := myList[j]
 		n2 := numberWords[j]
@@ -211,17 +223,12 @@ func main() {
 		}
 	}
 
-	fmt.Printf("%s => %d \n", numberWords[115], countChars(numberWords[115]))
-	fmt.Printf("%s => %d \n", numberWords[342], countChars(numberWords[342]))
-
 	tot := 0
 	for i, w := range numberWords {
 		if i == 0 {
 			continue
 		}
-
-		//fmt.Printf("%d %s \n", i, w)
 		tot += countChars(w)
 	}
-	fmt.Printf("Result for problem 0017: %d \n", tot)
+	fmt.Printf("Problem 17. Result: %d \n", tot)
 }
